@@ -2,16 +2,27 @@
   "name": "lab_realtime_node",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": ">=12.10.0"
+  },
+  "scripts": {
+    "dev.start": "nodemon index",
+    "start": "pm2-dev start index"
+  },
   "repository": "https://github.com/sys970717/lab_realtime_node.git",
   "author": "sys970717 <sys970717@naver.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
+    "babel-eslint": "10.1.0",
     "eslint": "7.11.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-config-prettier": "6.14.0",
     "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-prettier": "3.1.4",
+    "nodemon": "^2.0.6",
     "prettier": "2.1.2"
+  },
+  "dependencies": {
+    "pm2": "^4.5.0"
   }
 }
