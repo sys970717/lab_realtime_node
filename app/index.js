@@ -13,8 +13,8 @@ const app = express();
 
 app.use(cors());
 
-app.use('/css', express.static('../static/css'));
-app.use('/js', express.static('../static/js'));
+app.use('/css', express.static(path.join(__dirname, '../static/css')));
+app.use('/js', express.static(path.join(__dirname, '../static/js')));
 
 app.get("/", (req, res) => {
     fs.readFile(path.join(__dirname, '../static/index.html'), (err, data) => {
