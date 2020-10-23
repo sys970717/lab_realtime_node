@@ -6,8 +6,8 @@
     "node": ">=12.10.0"
   },
   "scripts": {
-    "dev.start": "nodemon index",
-    "start": "pm2-dev start index"
+    "dev.start": "nodemon app",
+    "start": "pm2-dev start app"
   },
   "repository": "https://github.com/sys970717/lab_realtime_node.git",
   "author": "sys970717 <sys970717@naver.com>",
@@ -23,6 +23,12 @@
     "prettier": "2.1.2"
   },
   "dependencies": {
-    "pm2": "^4.5.0"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "ioredis": "^4.17.3",
+    "pm2": "^4.5.0",
+    "request-promise-native": "^1.0.9",
+    "socket.io": "^2.3.0"
   }
 }
