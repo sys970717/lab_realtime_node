@@ -3,11 +3,27 @@
 module.exports = socketIO => {
   socketIO.sockets.on('connection', (socket) => {
     socket
-      .on('send', (data) => {
-        console.log(`Send Message: ${data.msg}`);
-      })
       .on('disconnetced', () => {
         console.log('접속 종료');
+        socket.broadcast.emit('update', {
+          type: 'disconnetced',
+          sender: 'SERVER',
+          message: `${name} 님이 ${roomId} 에 퇴장하였습니다.`,
+        })
+      })
+      .on('newUser', (userObj) => {
+        console.log(`new user: ${JSON.stringify(userObj)}`);
+        socket.name = userObj.name;
+        socket.emit('update', {
+          type: 'connect',
+          sender: 'SERVER',
+          message: `${userObj.name} 님이 입장하였습니다.`,
+        });
+      })
+      .on('message', (data) => {
+        console.log(data)
+        data.name = socket.name;
+        socket.broadcast.emit('update', data);
       })
   });
 }
