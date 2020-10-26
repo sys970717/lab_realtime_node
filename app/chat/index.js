@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = socketIO => {
+module.exports = (socketIO) => {
   socketIO.sockets.on('connection', (socket) => {
     socket
       .on('disconnetced', () => {
@@ -14,8 +14,7 @@ module.exports = socketIO => {
       .on('newUser', (userObj) => {
         console.log(`new user: ${JSON.stringify(userObj)}`);
         socket.name = userObj.name;
-        socket.emit('update', {
-          type: 'connect',
+        socket.broadcast.emit('update', {
           sender: 'SERVER',
           message: `${userObj.name} 님이 입장하였습니다.`,
         });

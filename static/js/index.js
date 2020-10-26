@@ -10,19 +10,18 @@ socket.on('connect', () => {
   socket.emit('newUser', user);
 });
 
-socket.on('update', (data) => {
+socket.on('update', async (data) => {
   console.log(data);
-  insertHistory(data);
+  await insertHistory(data);
 })
 
 async function send() {
   let message = document.getElementById('mInputMessage').value;
   const data = {
-    type: 'message',
     message,
     sender: user.name
   }
-  socket.emit(data);
+  socket.emit('message', data);
   console.log(data);
   await insertHistory(data);
   document.getElementById('mInputMessage').value = '';
