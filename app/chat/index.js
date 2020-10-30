@@ -6,7 +6,7 @@ module.exports = (socketIO) => {
       .on('disconnetced', () => {
         console.log('접속 종료');
         socket.broadcast.emit('update', {
-          type: 'disconnetced',
+          type: 'disconnected',
           sender: 'SERVER',
           message: `${name} 님이 ${roomId} 에 퇴장하였습니다.`,
         })

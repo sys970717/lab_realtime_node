@@ -29,6 +29,7 @@
     "ioredis": "4.17.3",
     "pm2": "4.5.0",
     "request-promise-native": "1.0.9",
+    "sequelize": "^6.3.5",
     "socket.io": "2.3.0"
   }
 }
